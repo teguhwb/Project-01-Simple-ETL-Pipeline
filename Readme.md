@@ -38,7 +38,7 @@ In modern data platform engineering, automating data ingestion from public REST 
 
 ## 🏗 Architecture & Workflow
 
-```text
+
 +-----------------------+      +-----------------------------------------------------+      +------------------------+
 |   Open Library API    | ---> |        Apache Airflow (Docker Container)           | ---> |  PostgreSQL Database   |
 | (REST API Search Endpoint)   |  [Task 1: Extract/Clean] -> [Task 2: Create Table]  |      |   (Table: `books`)     |
