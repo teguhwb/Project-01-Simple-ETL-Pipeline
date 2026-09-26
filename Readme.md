@@ -1,86 +1,48 @@
-# Project 1 — ETL Pipeline: Open Library API
+# 📚 Project 1 — End-to-End ETL Pipeline: Open Library API
 
-## Overview
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-2.9.2-017CEE?style=for-the-badge&logo=Apache%20Airflow&logoColor=white)](https://airflow.apache.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 
-An end-to-end ETL pipeline that extracts book data from
-the Open Library API, transforms the data using Python,
-and loads the result into PostgreSQL.
+An end-to-end Automated Data Engineering Pipeline that extracts book data from the **Open Library Search API**, performs data cleaning & transformation using Python, and loads the structured data into a **PostgreSQL** database. 
 
-The pipeline is orchestrated using Apache Airflow and
-runs in a Docker environment.
+The entire workflow is orchestrated using **Apache Airflow (DAG)** and fully containerized with **Docker Compose**.
 
-## Architecture
+---
 
-Open Library API
-       ↓
-    Python
- Extract + Transform
-       ↓
- Apache Airflow
-       ↓
-   PostgreSQL
+## 📌 Table of Contents
+- [Overview](#-overview)
+- [Architecture & Workflow](#-architecture--workflow)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [ETL Pipeline Process](#-etl-pipeline-process)
+  - [1. Extract & Transform](#1-extract--transform)
+  - [2. Database Schema](#2-database-schema)
+  - [3. Load & Orchestration](#3-load--orchestration)
+- [Getting Started & Installation](#-getting-started--installation)
+  - [Prerequisites](#prerequisites)
+  - [Step-by-Step Setup](#step-by-step-setup)
+- [Verification & Result](#-verification--result)
+- [Author](#-author)
 
-All services run using Docker Compose.
+---
 
-## Tech Stack
+## 📖 Overview
 
-- Python
-- Apache Airflow
-- PostgreSQL
-- Docker
-- Docker Compose
-- REST API
-- SQL
+In modern data platform engineering, automating data ingestion from public REST APIs into structured data stores is a fundamental workflow. This project demonstrates how to:
+1. Ingest unstructured JSON payloads from a public REST API.
+2. Filter, clean, and map field properties using Python scripts.
+3. Pass in-memory transformed state via Airflow XComs.
+4. Execute DDL and DML operations dynamically on PostgreSQL using specialized Airflow Operators & Hooks.
 
-## ETL Process
+---
 
-### 1. Extract
+## 🏗 Architecture & Workflow
 
-Data is extracted from the Open Library API using Python
-and the requests library.
-
-Search keyword:
-
-Data Engineering
-
-The pipeline retrieves the first 10 books from the API response.
-
-### 2. Transform
-
-The raw API response is transformed into a structured format.
-
-Selected fields:
-
-- title
-- author_name
-- first_publish_year
-
-The transformation also handles missing fields from the API response.
-
-### 3. Load
-
-The transformed data is inserted into a PostgreSQL table named:
-
-books
-
-## Airflow DAG
-
-The pipeline consists of three tasks:
-
-Extract & Clean
-       ↓
-Create Table
-       ↓
-Insert Data
-
-## Docker
-
-The project uses Docker Compose to run:
-
-- Apache Airflow
-- PostgreSQL
-
-## Result
-
-The pipeline successfully retrieves book data from the Open Library API,
-transforms the response, and stores the result in PostgreSQL.
+```text
++-----------------------+      +-----------------------------------------------------+      +------------------------+
+|   Open Library API    | ---> |        Apache Airflow (Docker Container)           | ---> |  PostgreSQL Database   |
+| (REST API Search Endpoint)   |  [Task 1: Extract/Clean] -> [Task 2: Create Table]  |      |   (Table: `books`)     |
++-----------------------+      |             -> [Task 3: Insert Data]                |      +------------------------+
+                               +-----------------------------------------------------+
