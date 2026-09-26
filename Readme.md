@@ -44,6 +44,7 @@ In modern data platform engineering, automating data ingestion from public REST 
 | (REST API Search Endpoint)   |  [Task 1: Extract/Clean] -> [Task 2: Create Table]  |      |   (Table: `books`)     |
 +-----------------------+      |             -> [Task 3: Insert Data]                |      +------------------------+
                                +-----------------------------------------------------+
+` ``` ` 
 
 🛠 Tech StackCategoryTechnologyUsage DescriptionLanguagePython 3.12Extraction script, payload parsing, array slicingOrchestratorApache Airflow 2.9.2DAG scheduling, task dependency management, XComDatabasePostgreSQL 13Target relational database storageContainerizationDocker & Docker ComposeContainer orchestration & environment virtualizationLibrariesrequests, airflow.providers.postgresHTTP handling and Database Connection Hooks📂 Project StructurePlaintextProject-01-Simple-ETL-Pipeline/
 │
