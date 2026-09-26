@@ -37,7 +37,7 @@ In modern data platform engineering, automating data ingestion from public REST 
 ---
 
 ## 🏗 Architecture & Workflow
-
+```text
 
 +-----------------------+      +-----------------------------------------------------+      +------------------------+
 |   Open Library API    | ---> |        Apache Airflow (Docker Container)           | ---> |  PostgreSQL Database   |
@@ -57,7 +57,8 @@ In modern data platform engineering, automating data ingestion from public REST 
 ├── compose.yml                          # Docker Compose configuration for Airflow & Postgres
 ├── extract_and_cleaning_data.py         # Standalone Python ETL prototyping script
 └── README.md                            # Comprehensive project documentation
-⚙️ ETL Pipeline Process1. Extract & TransformThe script fetches data using requests.get(), retrieves top 10 books based on the query Data Engineering, and cleans missing or deeply nested fields:Pythondef extract_and_cleaning_data(ti):
+
+## ⚙️ ETL Pipeline Process1. Extract & TransformThe script fetches data using requests.get(), retrieves top 10 books based on the query Data Engineering, and cleans missing or deeply nested fields:Pythondef extract_and_cleaning_data(ti):
     query = "Data Engineering"
     url = f"https://openlibrary.org/search.json?q={query.replace(' ', '+')}"
     response = requests.get(url)
