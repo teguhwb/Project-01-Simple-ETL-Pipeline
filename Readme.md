@@ -44,3 +44,11 @@ In modern data platform engineering, automating data ingestion from public REST 
 | (REST API Search Endpoint)   |  [Task 1: Extract/Clean] -> [Task 2: Create Table]  |      |   (Table: `books`)     |
 +-----------------------+      |             -> [Task 3: Insert Data]                |      +------------------------+
                                +-----------------------------------------------------+
+Flow Explanation
+Airflow DAG Trigger: Airflow executes tasks sequentially (task_1 >> task_2 >> task_3).
+
+Extraction & Transformation: Intercepts API endpoint [https://openlibrary.org/search.json?q=Data+Engineering](https://openlibrary.org/search.json?q=Data+Engineering), isolates key attributes (title, author_name, first_publish_year), and pushes clean list objects to XCom.
+
+Table Initialization: Verifies and creates the target relational table in PostgreSQL via SQL DDL script execution.
+
+Data Ingestion: Pushes memory-staged entities into PostgreSQL using PostgresHook transactional connections.
