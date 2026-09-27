@@ -22,7 +22,7 @@ The entire workflow is orchestrated using **Apache Airflow (DAG)** and fully con
   - [3. Load & Orchestration](#3-load--orchestration)
 - [Getting Started & Installation](#-getting-started--installation)
 - [Verification & Result](#-verification--result)
-- [Author](#-author)
+* [Author](#-author)
 
 ---
 📌 **Table of Contents**
