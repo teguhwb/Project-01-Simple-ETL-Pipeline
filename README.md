@@ -97,13 +97,19 @@ def extract_and_cleaning_data(ti):
     ti.xcom_push(key='book_data', value=books)
 ```
 
-2. Database SchemaTarget table schema executed by PostgresOperator:SQLCREATE TABLE IF NOT EXISTS books (
+### 2. Database SchemaTarget table schema executed by PostgresOperator:
+
+```SQL
+
+CREATE TABLE IF NOT EXISTS books (
     id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
     author_name TEXT,
     first_publish_year TEXT
 );
-3. Load & OrchestrationAirflow manages task order and passes state between tasks via XCom:Pythontask_1 = PythonOperator(
+
+```
+5. Load & OrchestrationAirflow manages task order and passes state between tasks via XCom:Pythontask_1 = PythonOperator(
     task_id='extract_cleaning_data', 
     python_callable=extract_and_cleaning_data, 
     dag=dag
