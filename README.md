@@ -153,3 +153,45 @@ task_1 >> task_2 >> task_3
    git clone [https://github.com/teguhwb/Project-01-Simple-ETL-Pipeline.git](https://github.com/teguhwb/Project-01-Simple-ETL-Pipeline.git)
    cd Project-01-Simple-ETL-Pipeline
    ```
+2. Setup Local Virtual Environment (Optional / Local Testing)
+   ```bash
+python -m venv myvenv
+   ```
+# Windows
+myvenv\Scripts\activate
+
+# Linux/MacOS
+source myvenv/bin/activate
+Run Services with Docker Compose
+
+Bash
+docker compose up -d
+Access Airflow UI
+
+Open browser: http://localhost:8080
+
+Default Username: admin
+
+Default Password: check container logs or standalone login file.
+
+Configure Airflow Connection
+
+Go to Admin -> Connections -> Add connection:
+
+Conn Id: books_connection
+
+Conn Type: Postgres
+
+Host: postgres
+
+Database: airflow
+
+Login: airflow
+
+Password: airflow
+
+Port: 5432
+
+Trigger DAG
+
+Unpause DAG dag_project_de_etl_v04 and click Trigger DAG.
