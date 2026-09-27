@@ -131,21 +131,23 @@ task_3 = PythonOperator(
     python_callable=insert_data, 
     dag=dag
 )
+## Task Dependencies
+task_1 >> task_2 >> task_3
 
 ```
 
+## 🚀 Getting Started & Installation
 
-## Task Dependencies
-task_1 >> task_2 >> task_3
-🚀 Getting Started & InstallationPrerequisitesDocker Desktop installed and running.Git installed.Python 3.12 (optional, for local testing outside Docker).Step-by-Step SetupClone RepositoryBashgit clone https://github.com/teguhwb/Project-01-Simple-ETL-Pipeline.git
-cd Project-01-Simple-ETL-Pipeline
-Setup Local Virtual Environment (Optional / Local Testing)Bashpython -m venv myvenv
+### Prerequisites
+* **Docker Desktop** installed and running.
+* **Git** installed.
+* **Python 3.12** (optional, for local testing outside Docker).
 
-# Windows
-myvenv\Scripts\activate
+---
 
-# Linux/MacOS
-source myvenv/bin/activate
-Run Services with Docker ComposeBashdocker compose up -d
-Access Airflow UIOpen browser: http://localhost:8080Default Username: adminDefault Password: check container logs or standalone login file.Configure Airflow ConnectionGo to Admin -> Connections -> Add connection:Conn Id: books_connectionConn Type: PostgresHost: postgresDatabase: airflowLogin: airflowPassword: airflowPort: 5432Trigger DAGUnpause DAG dag_project_de_etl_v04 and click Trigger DAG.✅ Verification & ResultAfter running the Airflow DAG successfully:Airflow DAG Run: All tasks (extract_cleaning_data, create_table, insert_data) complete with status Success (Green).PostgreSQL Data Verification:Execute inside PostgreSQL container:Bashdocker exec -it <postgres_container_id> psql -U airflow -d airflow -c "SELECT * FROM books;"
-Output Sample:idtitleauthor_namefirst_publish_year1Fundamentals of Data EngineeringJoe Reis20222Designing Data-Intensive ApplicationsMartin Kleppmann2017👨‍💻 AuthorTeguh Wibowo — GitHub Profile
+### Step-by-Step Setup
+
+1. **Clone Repository**
+   ```bash
+   git clone [https://github.com/teguhwb/Project-01-Simple-ETL-Pipeline.git](https://github.com/teguhwb/Project-01-Simple-ETL-Pipeline.git)
+   cd Project-01-Simple-ETL-Pipeline
