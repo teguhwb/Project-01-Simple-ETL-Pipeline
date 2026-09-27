@@ -71,7 +71,7 @@ Project-01-Simple-ETL-Pipeline/
 ├── extract_and_cleaning_data.py         # Standalone Python ETL prototyping script
 └── README.md                            # Comprehensive project documentation
 ```
-
+---
 ## ⚙️ ETL Pipeline Process
 
 ### 1. Extract & Transform
@@ -135,7 +135,7 @@ task_3 = PythonOperator(
 task_1 >> task_2 >> task_3
 
 ```
-
+---
 ## 🚀 Getting Started & Installation
 
 ### Prerequisites
@@ -184,7 +184,7 @@ docker compose up -d
 
 6. **Trigger DAG**
    - Unpause DAG `dag_project_de_etl_v04` and click **Trigger DAG**.
-
+---
 ## ✅ Verification & Result
 
 After running the Airflow DAG successfully:
