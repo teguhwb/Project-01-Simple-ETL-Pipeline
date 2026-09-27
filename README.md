@@ -153,19 +153,21 @@ task_1 >> task_2 >> task_3
    git clone [https://github.com/teguhwb/Project-01-Simple-ETL-Pipeline.git](https://github.com/teguhwb/Project-01-Simple-ETL-Pipeline.git)
    cd Project-01-Simple-ETL-Pipeline
    ```
-2. Setup Local Virtual Environment (Optional / Local Testing)
-   ```bash
+2. **Setup Local Virtual Environment (Optional / Local Testing)**
+```bash
 python -m venv myvenv
-   ```
+
 # Windows
 myvenv\Scripts\activate
 
 # Linux/MacOS
 source myvenv/bin/activate
-Run Services with Docker Compose
 
-Bash
+```
+3. **Run Services with Docker Compose**
+```bash
 docker compose up -d
+```
 Access Airflow UI
 
 Open browser: http://localhost:8080
