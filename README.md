@@ -46,7 +46,22 @@ In modern data platform engineering, automating data ingestion from public REST 
                                +-----------------------------------------------------+
 ```
 
-## 🛠 Tech StackCategoryTechnologyUsage DescriptionLanguagePython 3.12Extraction script, payload parsing, array slicingOrchestratorApache Airflow 2.9.2DAG scheduling, task dependency management, XComDatabasePostgreSQL 13Target relational database storageContainerizationDocker & Docker ComposeContainer orchestration & environment virtualizationLibrariesrequests, airflow.providers.postgresHTTP handling and Database Connection Hooks📂 Project StructurePlaintextProject-01-Simple-ETL-Pipeline/
+## 🛠 Tech Stack
+
+| Category | Technology | Usage Description |
+| :--- | :--- | :--- |
+| **Language** | Python 3.12 | Extraction script, payload parsing, array slicing |
+| **Orchestrator** | Apache Airflow 2.9.2 | DAG scheduling, task dependency management, XCom |
+| **Database** | PostgreSQL 13 | Target relational database storage |
+| **Containerization** | Docker & Docker Compose | Container orchestration & environment virtualization |
+| **Libraries** | `requests`, `airflow.providers.postgres` | HTTP handling and Database Connection Hooks |
+
+---
+
+## 📂 Project Structure
+
+```text
+Project-01-Simple-ETL-Pipeline/
 │
 ├── airflow/
 │   ├── dags/
@@ -58,6 +73,7 @@ In modern data platform engineering, automating data ingestion from public REST 
 ├── compose.yml                          # Docker Compose configuration for Airflow & Postgres
 ├── extract_and_cleaning_data.py         # Standalone Python ETL prototyping script
 └── README.md                            # Comprehensive project documentation
+```
 
 ## ⚙️ ETL Pipeline Process1. Extract & TransformThe script fetches data using requests.get(), retrieves top 10 books based on the query Data Engineering, and cleans missing or deeply nested fields:Pythondef extract_and_cleaning_data(ti):
     query = "Data Engineering"
