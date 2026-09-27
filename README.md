@@ -109,7 +109,11 @@ CREATE TABLE IF NOT EXISTS books (
 );
 
 ```
-5. Load & OrchestrationAirflow manages task order and passes state between tasks via XCom:Pythontask_1 = PythonOperator(
+
+### 3. Load & OrchestrationAirflow manages task order and passes state between tasks via XCom:
+
+```python
+task_1 = PythonOperator(
     task_id='extract_cleaning_data', 
     python_callable=extract_and_cleaning_data, 
     dag=dag
@@ -127,6 +131,8 @@ task_3 = PythonOperator(
     python_callable=insert_data, 
     dag=dag
 )
+
+```
 
 
 ## Task Dependencies
