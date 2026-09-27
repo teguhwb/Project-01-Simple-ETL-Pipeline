@@ -25,7 +25,19 @@ The entire workflow is orchestrated using **Apache Airflow (DAG)** and fully con
 - [Author](#-author)
 
 ---
+📌 **Table of Contents**
 
+* [Overview](#overview)
+* [Architecture & Workflow](#architecture--workflow)
+* [Tech Stack](#-tech-stack)
+* [Project Structure](#-project-structure)
+* [ETL Pipeline Process](#%EF%B8%8F-etl-pipeline-process)
+  * [1. Extract & Transform](#1-extract--transform)
+  * [2. Database Schema](#2-database-schema)
+  * [3. Load & Orchestration](#3-load--orchestration)
+* [Getting Started & Installation](#-getting-started--installation)
+* [Verification & Result](#-verification--result)
+* [Author](#-author)
 ## 📖 Overview
 
 In modern data platform engineering, automating data ingestion from public REST APIs into structured data stores is a fundamental workflow. This project demonstrates how to:
