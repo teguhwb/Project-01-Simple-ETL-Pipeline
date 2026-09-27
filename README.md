@@ -204,5 +204,17 @@ docker compose up -d
 After running the Airflow DAG successfully:
 * **Airflow DAG Run:** All tasks (`extract_cleaning_data`, `create_table`, `insert_data`) complete with status **Success** (Green).
 * **PostgreSQL Data Verification:** Execute inside PostgreSQL container:
-  ```bash
+```bash
   docker exec -it <postgres_container_id> psql -U airflow -d airflow -c "SELECT * FROM books;"
+
+  **Output Sample:**
+```
+| id | title | author_name | first_publish_year |
+| :--- | :--- | :--- | :--- |
+| 1 | Fundamentals of Data Engineering | Joe Reis | 2022 |
+| 2 | Designing Data-Intensive Applications | Martin Kleppmann | 2017 |
+
+---
+
+## 👨‍💻 Author
+**Teguh Wibowo** — [GitHub Profile](https://github.com/teguhwb)
