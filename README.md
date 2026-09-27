@@ -188,12 +188,21 @@ docker compose up -d
 
 - Database: airflow
 
-Login: airflow
+  - Login: airflow
 
-Password: airflow
+  - Password: airflow
 
-Port: 5432
+  - Port: 5432
 
 6. **Trigger DAG**
 
-Unpause DAG dag_project_de_etl_v04 and click Trigger DAG.
+  - Unpause DAG dag_project_de_etl_v04 and click Trigger DAG.
+
+
+## ✅ Verification & Result
+
+After running the Airflow DAG successfully:
+* **Airflow DAG Run:** All tasks (`extract_cleaning_data`, `create_table`, `insert_data`) complete with status **Success** (Green).
+* **PostgreSQL Data Verification:** Execute inside PostgreSQL container:
+  ```bash
+  docker exec -it <postgres_container_id> psql -U airflow -d airflow -c "SELECT * FROM books;"
