@@ -75,7 +75,9 @@ Project-01-Simple-ETL-Pipeline/
 └── README.md                            # Comprehensive project documentation
 ```
 
-## ⚙️ ETL Pipeline Process1. Extract & TransformThe script fetches data using requests.get(), retrieves top 10 books based on the query Data Engineering, and cleans missing or deeply nested fields:Pythondef extract_and_cleaning_data(ti):
+## ⚙️ ETL Pipeline 
+
+Process1. Extract & TransformThe script fetches data using requests.get(), retrieves top 10 books based on the query Data Engineering, and cleans missing or deeply nested fields:Pythondef extract_and_cleaning_data(ti):
     query = "Data Engineering"
     url = f"https://openlibrary.org/search.json?q={query.replace(' ', '+')}"
     response = requests.get(url)
@@ -113,6 +115,7 @@ task_3 = PythonOperator(
     python_callable=insert_data, 
     dag=dag
 )
+
 
 ## Task Dependencies
 task_1 >> task_2 >> task_3
