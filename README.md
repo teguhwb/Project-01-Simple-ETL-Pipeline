@@ -168,25 +168,25 @@ source myvenv/bin/activate
 ```bash
 docker compose up -d
 ```
-Access Airflow UI
+4. **Access Airflow UI**
 
-Open browser: http://localhost:8080
+  - Open browser: http://localhost:8080
 
-Default Username: admin
+  - Default Username: admin
 
-Default Password: check container logs or standalone login file.
+  - Default Password: check container logs or standalone login file.
 
-Configure Airflow Connection
+5. **Configure Airflow Connection**
 
-Go to Admin -> Connections -> Add connection:
+  - Go to Admin -> Connections -> Add connection:
 
-Conn Id: books_connection
+ - Conn Id: books_connection
 
-Conn Type: Postgres
+ - Conn Type: Postgres
 
-Host: postgres
+- Host: postgres
 
-Database: airflow
+- Database: airflow
 
 Login: airflow
 
@@ -194,6 +194,6 @@ Password: airflow
 
 Port: 5432
 
-Trigger DAG
+6. **Trigger DAG**
 
 Unpause DAG dag_project_de_etl_v04 and click Trigger DAG.
