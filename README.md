@@ -131,6 +131,7 @@ task_3 = PythonOperator(
     python_callable=insert_data, 
     dag=dag
 )
+
 ## Task Dependencies
 task_1 >> task_2 >> task_3
 
@@ -151,3 +152,4 @@ task_1 >> task_2 >> task_3
    ```bash
    git clone [https://github.com/teguhwb/Project-01-Simple-ETL-Pipeline.git](https://github.com/teguhwb/Project-01-Simple-ETL-Pipeline.git)
    cd Project-01-Simple-ETL-Pipeline
+   ```
