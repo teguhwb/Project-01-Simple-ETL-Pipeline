@@ -182,7 +182,7 @@ docker compose up -d
 
  - Conn Id: books_connection
 
- - Conn Type: Postgres
+ - * **Conn Type:** `Postgres`
 
 - Host: postgres
 
@@ -206,9 +206,9 @@ After running the Airflow DAG successfully:
 * **PostgreSQL Data Verification:** Execute inside PostgreSQL container:
 ```bash
   docker exec -it <postgres_container_id> psql -U airflow -d airflow -c "SELECT * FROM books;"
-
-  **Output Sample:**
 ```
+  **Output Sample:**
+
 | id | title | author_name | first_publish_year |
 | :--- | :--- | :--- | :--- |
 | 1 | Fundamentals of Data Engineering | Joe Reis | 2022 |
