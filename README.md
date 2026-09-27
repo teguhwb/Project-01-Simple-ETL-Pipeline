@@ -75,11 +75,15 @@ Project-01-Simple-ETL-Pipeline/
 └── README.md                            # Comprehensive project documentation
 ```
 
-## ⚙️ ETL Pipeline 
+## ⚙️ ETL Pipeline Process
 
-Process1. Extract & TransformThe script fetches data using requests.get(), retrieves top 10 books based on the query Data Engineering, and cleans missing or deeply nested fields:Pythondef extract_and_cleaning_data(ti):
+### 1. Extract & Transform
+The script fetches data using `requests.get()`, retrieves top 10 books based on the query *Data Engineering*, and cleans missing or deeply nested fields:
+
+```python
+def extract_and_cleaning_data(ti):
     query = "Data Engineering"
-    url = f"https://openlibrary.org/search.json?q={query.replace(' ', '+')}"
+    url = f"[https://openlibrary.org/search.json?q=](https://openlibrary.org/search.json?q=){query.replace(' ', '+')}"
     response = requests.get(url)
     data = response.json()
 
@@ -91,6 +95,8 @@ Process1. Extract & TransformThe script fetches data using requests.get(), retri
             'first_publish_year': book.get('first_publish_year')
         })
     ti.xcom_push(key='book_data', value=books)
+```
+
 2. Database SchemaTarget table schema executed by PostgresOperator:SQLCREATE TABLE IF NOT EXISTS books (
     id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
