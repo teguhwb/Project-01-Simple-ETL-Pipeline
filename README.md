@@ -97,7 +97,8 @@ def extract_and_cleaning_data(ti):
     ti.xcom_push(key='book_data', value=books)
 ```
 
-### 2. Database SchemaTarget table schema executed by PostgresOperator:
+### 2. Database Schema
+Target table schema executed by PostgresOperator:
 
 ```SQL
 
@@ -110,7 +111,8 @@ CREATE TABLE IF NOT EXISTS books (
 
 ```
 
-### 3. Load & OrchestrationAirflow manages task order and passes state between tasks via XCom:
+### 3. Load & Orchestration
+Airflow manages task order and passes state between tasks via XCom:
 
 ```python
 task_1 = PythonOperator(
