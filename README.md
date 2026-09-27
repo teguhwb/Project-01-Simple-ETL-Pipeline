@@ -44,9 +44,9 @@ In modern data platform engineering, automating data ingestion from public REST 
 | (REST API Search Endpoint)   |  [Task 1: Extract/Clean] -> [Task 2: Create Table]  |      |   (Table: `books`)     |
 +-----------------------+      |             -> [Task 3: Insert Data]                |      +------------------------+
                                +-----------------------------------------------------+
-` ``` ` 
+```
 
-🛠 Tech StackCategoryTechnologyUsage DescriptionLanguagePython 3.12Extraction script, payload parsing, array slicingOrchestratorApache Airflow 2.9.2DAG scheduling, task dependency management, XComDatabasePostgreSQL 13Target relational database storageContainerizationDocker & Docker ComposeContainer orchestration & environment virtualizationLibrariesrequests, airflow.providers.postgresHTTP handling and Database Connection Hooks📂 Project StructurePlaintextProject-01-Simple-ETL-Pipeline/
+## 🛠 Tech StackCategoryTechnologyUsage DescriptionLanguagePython 3.12Extraction script, payload parsing, array slicingOrchestratorApache Airflow 2.9.2DAG scheduling, task dependency management, XComDatabasePostgreSQL 13Target relational database storageContainerizationDocker & Docker ComposeContainer orchestration & environment virtualizationLibrariesrequests, airflow.providers.postgresHTTP handling and Database Connection Hooks📂 Project StructurePlaintextProject-01-Simple-ETL-Pipeline/
 │
 ├── airflow/
 │   ├── dags/
@@ -98,7 +98,7 @@ task_3 = PythonOperator(
     dag=dag
 )
 
-# Task Dependencies
+## Task Dependencies
 task_1 >> task_2 >> task_3
 🚀 Getting Started & InstallationPrerequisitesDocker Desktop installed and running.Git installed.Python 3.12 (optional, for local testing outside Docker).Step-by-Step SetupClone RepositoryBashgit clone https://github.com/teguhwb/Project-01-Simple-ETL-Pipeline.git
 cd Project-01-Simple-ETL-Pipeline
